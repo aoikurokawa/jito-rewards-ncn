@@ -8,7 +8,7 @@ pub enum WeightTableInstruction {
     /// Initializes global configuration
     #[account(0, name = "restaking_config")]
     #[account(1, name = "ncn")]
-    #[account(2, writable, signer, name = "weight_table")]
+    #[account(2, writable, name = "weight_table")]
     #[account(3, writable, signer, name = "weight_table_admin")]
     #[account(4, name = "restaking_program_id")]
     #[account(5, name = "system_program")]

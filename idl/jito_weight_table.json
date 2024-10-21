@@ -18,7 +18,7 @@
         {
           "name": "weightTable",
           "isMut": true,
-          "isSigner": true
+          "isSigner": false
         },
         {
           "name": "weightTableAdmin",

@@ -44,7 +44,7 @@ impl InitializeWeightTable {
         ));
         accounts.push(solana_program::instruction::AccountMeta::new(
             self.weight_table,
-            true,
+            false,
         ));
         accounts.push(solana_program::instruction::AccountMeta::new(
             self.weight_table_admin,
@@ -102,7 +102,7 @@ pub struct InitializeWeightTableInstructionArgs {
 ///
 ///   0. `[]` restaking_config
 ///   1. `[]` ncn
-///   2. `[writable, signer]` weight_table
+///   2. `[writable]` weight_table
 ///   3. `[writable, signer]` weight_table_admin
 ///   4. `[]` restaking_program_id
 ///   5. `[optional]` system_program (default to `11111111111111111111111111111111`)
@@ -306,7 +306,7 @@ impl<'a, 'b> InitializeWeightTableCpi<'a, 'b> {
         ));
         accounts.push(solana_program::instruction::AccountMeta::new(
             *self.weight_table.key,
-            true,
+            false,
         ));
         accounts.push(solana_program::instruction::AccountMeta::new(
             *self.weight_table_admin.key,
@@ -364,7 +364,7 @@ impl<'a, 'b> InitializeWeightTableCpi<'a, 'b> {
 ///
 ///   0. `[]` restaking_config
 ///   1. `[]` ncn
-///   2. `[writable, signer]` weight_table
+///   2. `[writable]` weight_table
 ///   3. `[writable, signer]` weight_table_admin
 ///   4. `[]` restaking_program_id
 ///   5. `[]` system_program

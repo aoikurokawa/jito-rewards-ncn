@@ -30,6 +30,7 @@ import {
   type OptionOrNullable,
   type ReadonlyAccount,
   type TransactionSigner,
+  type WritableAccount,
   type WritableSignerAccount,
 } from '@solana/web3.js';
 import { JITO_WEIGHT_TABLE_PROGRAM_ADDRESS } from '../programs';
@@ -61,8 +62,7 @@ export type InitializeWeightTableInstruction<
         : TAccountRestakingConfig,
       TAccountNcn extends string ? ReadonlyAccount<TAccountNcn> : TAccountNcn,
       TAccountWeightTable extends string
-        ? WritableSignerAccount<TAccountWeightTable> &
-            IAccountSignerMeta<TAccountWeightTable>
+        ? WritableAccount<TAccountWeightTable>
         : TAccountWeightTable,
       TAccountWeightTableAdmin extends string
         ? WritableSignerAccount<TAccountWeightTableAdmin> &
@@ -127,7 +127,7 @@ export type InitializeWeightTableInput<
 > = {
   restakingConfig: Address<TAccountRestakingConfig>;
   ncn: Address<TAccountNcn>;
-  weightTable: TransactionSigner<TAccountWeightTable>;
+  weightTable: Address<TAccountWeightTable>;
   weightTableAdmin: TransactionSigner<TAccountWeightTableAdmin>;
   restakingProgramId: Address<TAccountRestakingProgramId>;
   systemProgram?: Address<TAccountSystemProgram>;
